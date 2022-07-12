@@ -1,46 +1,55 @@
 
-// Nome do Aluno - nota 1 - nota 2 média -  Aprovado/ reprovado
+// Nome do Aluno - nota 1 + nota 2  + nota 3 + nota 4 + nota 5 - média = Conseguiu / Lista de espera / Não foi dessa vez.
 
- var nomes = ["Erick","Amanda","Diego","Kevin"];
- var notasA = [9.0, 8.0, 7.6, 5.0];
- var notasB = [ 9.5, 9.0, 5.0, 4.0];
+var alunos = [ "Erick","Amanda","Kevin","Toff","Diego"];
+ var notas1 = [9.0, 8.5, 7.6, 5.6, 9.5];
+ var notas2 = [10, 9.0, 9.5, 4.0, 8.5];
+ var notas3 = [8.0, 9.5, 5.6, 3.0, 10];
+ var notas4 = [7.0, 9.0, 9.5, 3.5, 7.0];
+ var notas5 = [9.0, 8.5, 7.5, 1.0, 9.5];
 
 
- function media(n1,n2){
+ function media(n1, n2, n3, n4, n5){
 
-    return (n1 + n2) /2;
+        return (n1 + n2 + n3 + n4 + n5) * 5;
+
  };
 
 
-function passou(nota){
+function resultado(nota){
 
+        if( nota >= 200){
 
-    if( nota > 7){
+                return "Parabéns a bolsa é sua";
+        
+        }
 
-        return "Aprovado";
-    }
-    
-    else if (nota >= 6 ){
+        else if( nota >= 100){
 
-        return "Recuperaçaõ"
+                return "Você está na lista de spera";
+        }
 
-    }
+        else{
 
-    else{
+                return "Você não obteve nota suficiente para essa vaga";
+        }
 
-        return "Reprovado";
-    }
 };
 
+for( index in alunos){
 
- for(index in  nomes){
+        var a = notas1[index];
+        var b = notas2[index];
+        var c = notas3[index];
+        var d = notas4[index];
+        var e = notas5[index];
 
-    var nota1 = notasA[index];
-    var nota2 = notasB[index];
+        var nota = media(a,b,c,d,e);
 
-    var m = media(nota1 , nota2);
+        console.log(alunos[index] + " - " + a + " + " + b + " + " + c + " + " + d + " + " + e + " = " + nota + " => " + resultado(nota));
 
-   console.log(nomes[index] + " - " + nota1 + " - " + nota2 +  " = "+ m + " - " + passou(m));
+        
 
- };
+};
+
 
